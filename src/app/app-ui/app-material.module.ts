@@ -39,13 +39,9 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
-import {ProfileModule} from './profile/profile.module';
-import {DashboardModule} from './dashboard/dashboard.module';
 
 @NgModule({
   imports: [
-    DashboardModule,
-    ProfileModule,
     // CDK
     A11yModule,
     BidiModule,
