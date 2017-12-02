@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import { AppUiModule } from '../app-ui/app-ui.module';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,6 +9,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ AppUiModule ],
       declarations: [ DashboardComponent ]
     })
     .compileComponents();

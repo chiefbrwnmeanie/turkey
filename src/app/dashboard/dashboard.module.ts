@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppUiModule} from '../app-ui/app-ui.module';
 
 import { DashboardComponent } from './dashboard.component';
+import { StatsComponent } from './stats.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { DashboardComponent } from './dashboard.component';
     AppUiModule
   ],
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    StatsComponent
   ]
 })
 export class DashboardModule { }

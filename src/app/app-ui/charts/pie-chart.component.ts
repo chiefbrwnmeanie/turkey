@@ -17,7 +17,7 @@ export class PieChartComponent implements OnInit {
       type: 'Pie',
       data: data['Pie'],
       options: {
-        donut: true,
+        donut: false,
         showLabel: true
       }
     };

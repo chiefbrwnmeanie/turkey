@@ -7,7 +7,7 @@ import { BarChartComponent } from './bar-chart.component';
 @NgModule({
   imports: [
     CommonModule,
-    ChartistModule
+    ChartistModule,
   ],
   exports: [
     ChartistModule,

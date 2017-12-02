@@ -1,13 +1,13 @@
 /*
-Error: File to import not found or unreadable: ~@angular/material/theming.
+Error: File to import not found or unreadable: ~@angular/material/_theming.scss.
         on line 1 of styles.scss
 
-1: @import '~@angular/material/theming';
-2: @include mat-core();
-3: 
-4: $candy-app-primary: mat-palette($mat-blue-grey);
-5: $candy-app-accent:  mat-palette($mat-amber, A200, A100, A400);
-6: 
+1: @import "~@angular/material/_theming.scss";
+2: 
+3: $custom-typography: mat-typography-config(
+4:   $font-family: 'Hind, san-serif',
+5:   $headline: mat-typography-level(32px, 48px, 700),
+6:   $body-1: mat-typography-level(16px, 24px, 500)
 
 Backtrace:
 styles.scss:1
@@ -53,4 +53,4 @@ styles.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~@angular/material/theming.\A         on line 1 of styles.scss\A \A 1: @import '~@angular/material/theming';\A 2: @include mat-core();\A 3: \A 4: $candy-app-primary: mat-palette($mat-blue-grey);\A 5: $candy-app-accent:  mat-palette($mat-amber, A200, A100, A400);\A 6: "; }
+  content: "Error: File to import not found or unreadable: ~@angular/material/_theming.scss.\A         on line 1 of styles.scss\A \A 1: @import \"~@angular/material/_theming.scss\";\A 2: \A 3: $custom-typography: mat-typography-config(\A 4:   $font-family: 'Hind, san-serif',\A 5:   $headline: mat-typography-level(32px, 48px, 700),\A 6:   $body-1: mat-typography-level(16px, 24px, 500)"; }
