@@ -20,11 +20,11 @@ export class AppComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  onResize() {
+  ngOnInit() {
     this.manageNav();
   }
 
-  ngOnInit() {
+  onResize() {
     this.manageNav();
   }
 
@@ -35,6 +35,5 @@ export class AppComponent implements OnInit {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
 
 }
