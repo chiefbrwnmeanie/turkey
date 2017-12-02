@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppUiModule } from '../app-ui/app-ui.module';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+import { IndividualStatsComponent } from '../stats/individual-stats.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('IndividualStatsComponent', () => {
+  let component: IndividualStatsComponent;
+  let fixture: ComponentFixture<IndividualStatsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ AppUiModule ],
-      declarations: [ DashboardComponent ]
+      declarations: [ IndividualStatsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(IndividualStatsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProfileModule } from './profile/profile.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppUiModule } from './app-ui/app-ui.module';
+import { ProfileModule } from './profile/profile.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { StatsModule } from './stats/stats.module';
+
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import { AppUiModule } from './app-ui/app-ui.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ProfileModule,
-    DashboardModule
+    DashboardModule,
+    StatsModule
   ],
   exports: [ AppUiModule ],
   declarations: [ AppComponent ],

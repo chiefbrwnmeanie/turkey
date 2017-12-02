@@ -15,7 +15,11 @@ $turkey-app-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
 
 $turkey-app-warn: mat-palette($mat-red);
 
-$turkey-app-theme: mat-light-theme($turkey-app-primary, $turkey-app-accent, $turkey-app-warn);
+$turkey-app-theme: mat-light-theme(
+    $turkey-app-primary,
+    $turkey-app-accent,
+    $turkey-app-warn
+);
 
 @include angular-material-theme($turkey-app-theme);
 
@@ -23,7 +27,6 @@ $turkey-app-theme: mat-light-theme($turkey-app-primary, $turkey-app-accent, $tur
 $toolbar-link-color: #333333;
 $nav-background: #333333;
 $nav-link-color: #dddddd;
-
 
 body {
   margin: 0;
@@ -41,9 +44,12 @@ body {
 }
 
 /* main toolbar */
+.app-toolbar {
+  z-index: 2;
+}
+
 .app-is-mobile .app-toolbar {
   position: fixed;
-  z-index: 2;
 }
 
 .app-toolbar.mat-toolbar.mat-primary {
@@ -76,6 +82,7 @@ h1.app-name {
 }
 .app-sidenav.mat-nav-list .mat-list-item {
   color: $nav-link-color;
+  font-size: .9em;
 }
 
 .app-sidenav-container {
@@ -92,4 +99,9 @@ h1.app-name {
   height: 500px;
   margin: 15px;
   float: left;
+}
+
+/* router outlet content area */
+.content-container {
+  margin: 10px;
 }
