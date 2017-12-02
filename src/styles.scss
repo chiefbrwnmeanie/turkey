@@ -1,4 +1,4 @@
-@import "~@angular/material/_theming.scss";
+@import "~@angular/material/theming";
 
 $custom-typography: mat-typography-config(
   $font-family: 'Hind, san-serif',
@@ -9,6 +9,7 @@ $custom-typography: mat-typography-config(
 @include mat-core($custom-typography);
 
 $candy-app-primary: mat-palette($mat-amber);
+
 $candy-app-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
 
 $candy-app-warn: mat-palette($mat-red);
@@ -17,6 +18,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 
 @include angular-material-theme($candy-app-theme);
 
+$nav-link-color: rgba(0,0,0,.64);
 
 body {
   margin: 0;
@@ -27,7 +29,7 @@ body {
 }
 
 .toolbar-icon {
-  padding: 0 5px;
+  padding: 0px;
 }
 
 .toolbar-item {
@@ -41,3 +43,29 @@ body {
   float: left;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.app-is-mobile .app-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.app-app-name {
+  margin-left: 8px;
+}
+
+.app-sidenav-container {
+  flex: 1;
+}
+
+.app-is-mobile .app-sidenav-container {
+  flex: 1 0 auto;
+}
