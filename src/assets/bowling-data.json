@@ -1,0 +1,80 @@
+{
+  "teams": [
+    {
+      "name": [
+        "Team A"
+      ],
+      "league": "League A",
+      "members": [
+        {
+          "name": "Jane",
+          "games": [
+            {
+              "game": "1",
+              "score": "200"
+            },
+            {
+              "game": "2",
+              "score": "180"
+            }
+          ]
+        },
+        {
+          "name": "John",
+          "games": [
+            {
+              "game": "1",
+              "score": "202",
+              "strikes": "3",
+              "spares": "1"
+            },
+            {
+              "game": "2",
+              "score": "150",
+              "strikes": "1",
+              "spares": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": [
+        "Team B"
+      ],
+      "league": "League A",
+      "members": [
+        {
+          "name": "Henry",
+          "games": [
+            {
+              "game": "1",
+              "score": "170"
+            },
+            {
+              "game": "3",
+              "score": "220"
+            }
+          ]
+        },
+        {
+          "name": "Pam",
+          "games": [
+            {
+              "game": "1",
+              "score": "149",
+              "strikes": "0",
+              "spares": "1"
+            },
+            {
+              "game": "2",
+              "score": "160",
+              "strikes": "1",
+              "spares": "1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
