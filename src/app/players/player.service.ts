@@ -3,51 +3,48 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Team } from './team';
 import { MessageService } from '../messages/message.service';
+import {Player} from './player';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 
 @Injectable()
-export class TeamService {
+export class PlayerService {
 
-  private teamUrl = 'api/teams';  // URL to web api
+  private playerUrl = 'api/players';  // URL to web api
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
-
-  getTeams (): Observable<Team[]> {
-    return this.http.get<Team[]>(this.teamUrl)
+  /** GET all players. Error with 404 if id not found */
+  getPlayers (): Observable<Player[]> {
+    return this.http.get<Player[]>(this.playerUrl)
       .pipe(
-        tap(teams => this.log(`fetched teams`)),
-        catchError(this.handleError('getTeams', []))
+        tap(players => this.log(`fetched players`)),
+        catchError(this.handleError('getPlayers', []))
       );
   }
 
-  /** GET team by id. Error with 404 if id not found */
-  getTeam(id: number): Observable<Team> {
-    const url = `${this.teamUrl}/${id}`;
-    return this.http.get<Team>(url).pipe(
-      tap(_ => this.log(`fetched team id=${id}`)),
-      catchError(this.handleError<Team>(`getTeam id=${id}`))
+  /** GET player by id. Error with 404 if id not found */
+  getPlayer(id: number): Observable<Player> {
+    const url = `${this.playerUrl}/${id}`;
+    return this.http.get<Player>(url).pipe(
+      tap(_ => this.log(`fetched player id=${id}`)),
+      catchError(this.handleError<Player>(`getPlayer id=${id}`))
     );
   }
 
-  /** GET team by id. Return `undefined` when id not found */
-  getTeamNo404<Data>(id: number): Observable<Team> {
-    const url = `${this.teamUrl}/?team=${id}`;
-    return this.http.get<Team[]>(url)
+  /** GET player by id. Return `undefined` when id not found */
+  getPlayerNo404<Data>(id: number): Observable<Player> {
+    const url = `${this.playerUrl}/?player=${id}`;
+    return this.http.get<Player[]>(url)
       .pipe(
-        map(teams => teams[0]), // returns a {0|1} element array
+        map(players => players[0]), // returns a {0|1} element array
         tap(t => {
           const outcome = t ? `fetched` : `did not find`;
-          this.log(`${outcome} team id=${id}`);
+          this.log(`${outcome} player id=${id}`);
         }),
-        catchError(this.handleError<Team>(`getTeam id=${id}`))
+        catchError(this.handleError<Player>(`getPlayer id=${id}`))
       );
   }
 
@@ -71,8 +68,8 @@ export class TeamService {
     };
   }
 
-  /** Log a Team Service message with the MessageService */
+  /** Log a Player Service message with the MessageService */
   private log(message: string) {
-    this.messageService.add('Team Service: ' + message);
+    this.messageService.add('Player Service: ' + message);
   }
 }

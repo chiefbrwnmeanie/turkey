@@ -1,3 +1,10 @@
-<p>
-  players works!
-</p>
+<div class="content-container">
+  <h2>Teams</h2>
+  <ul class="players">
+    <li *ngFor="let player of players">
+      <a routerLink="./detail/{{player.id}}">
+        {{player.id}} {{player.name}}
+      </a>
+    </li>
+  </ul>
+</div>

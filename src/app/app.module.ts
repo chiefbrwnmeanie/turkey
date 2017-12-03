@@ -6,24 +6,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClientModule }  from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService } from './in-memory-data.service';
 
-import { AppUiModule } from './app-ui/app-ui.module';
-import { ProfileModule } from './profile/profile.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { StatsModule } from './stats/stats.module';
-import { TeamsComponent } from './teams/teams.component';
-import { TeamDetailComponent } from './teams/team-detail.component';
-import { TeamService } from './teams/team.service';
 import { MessageService } from './messages/message.service';
 import { MessagesComponent } from './messages/messages.component';
+
+import { AppUiModule } from './app-ui/app-ui.module';
+
+import { TeamService } from './teams/team.service';
+import { TeamsComponent } from './teams/teams.component';
+import { TeamDetailComponent } from './teams/team-detail.component';
+
+import { PlayerService } from './players/player.service';
 import { PlayersComponent } from './players/players.component';
-import { PlayerComponent } from './players/player.component';
+import { PlayerDetailComponent } from './players/player-detail.component';
+
 import { GamesComponent } from './games/games.component';
 import { GameComponent } from './games/game.component';
 
+import { ProfileModule } from './profile/profile.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { StatsModule } from './stats/stats.module';
 
 @NgModule({
   imports: [
@@ -53,10 +58,13 @@ import { GameComponent } from './games/game.component';
     TeamsComponent,
     TeamDetailComponent,
     PlayersComponent,
-    PlayerComponent,
+    PlayerDetailComponent,
     GamesComponent,
     GameComponent ],
   bootstrap: [ AppComponent ],
-  providers: [TeamService, MessageService]
+  providers: [
+    TeamService,
+    MessageService,
+    PlayersService ]
 })
 export class AppModule {}
