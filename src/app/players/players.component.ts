@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from './player';
 import { PlayerService } from './player.service';
-import {Team} from '../teams/team';
-import {TeamService} from '../teams/team.service';
 
 @Component({
   selector: 'app-players',

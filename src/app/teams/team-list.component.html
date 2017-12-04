@@ -1,0 +1,13 @@
+<h2 class="app-team-list">Teams</h2>
+<!--
+<mat-list>
+  <mat-list-item *ngFor="let team of teams" class="app-team-list mat-list-item"
+      [ngClass]="{selected: team.id === selectedTeam}"
+      (click)="showTeam(team.id)">{{ team.name }}</mat-list-item>
+</mat-list>
+-->
+<mat-grid-list cols="3" rowHeight="3em">
+  <mat-grid-tile *ngFor="let team of teams" class="app-team-list mat-list-item"
+                 [ngClass]="{selected: team.id === selectedTeam}"
+                 (click)="showTeam(team.id)">{{ team.name }}</mat-grid-tile>
+</mat-grid-list>

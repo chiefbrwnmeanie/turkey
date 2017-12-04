@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { TeamService } from '../teams/team.service';
+import { TeamService } from '../teams/team-http.service';
 import { TeamsComponent } from '../teams/teams.component';
 import { AppUiModule } from '../app-ui/app-ui.module';
 import { MessageService } from '../messages/message.service';

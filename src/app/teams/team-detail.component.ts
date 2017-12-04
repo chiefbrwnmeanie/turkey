@@ -1,36 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { Team } from './team';
-import { TeamService } from './team.service';
+import { TeamsService } from './teams.service';
 
 @Component({
   selector: 'app-team-detail',
   templateUrl: './team-detail.component.html',
-  styleUrls: ['./team-detail.component.css']
+  styleUrls: ['./team-detail.component.scss']
 })
 export class TeamDetailComponent implements OnInit {
-  @Input() team: Team;
+  currentTeam: Team;
 
   constructor(
     private route: ActivatedRoute,
-    private teamService: TeamService,
-    private location: Location
-  ) {}
+    private service: TeamsService
+  ) { }
 
-  ngOnInit(): void {
-    this.getTeam();
+  ngOnInit() {
+    this.route.params.subscribe((params: {id: string}) => {
+      this.currentTeam = this.service.getTeamById(params.id);
+    });
   }
-
-  getTeam(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.teamService.getTeam(id)
-      .subscribe(team => this.team = team);
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
 }

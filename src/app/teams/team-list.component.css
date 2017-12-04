@@ -1,0 +1,13 @@
+h2.app-team-list {
+  font-size: 1.1em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0; }
+
+.app-team-list {
+  cursor: pointer;
+  height: auto; }
+
+.app-team-list.mat-grid-tile {
+  background: #dfdfdf; }
+
+/*# sourceMappingURL=team-list.component.css.map */

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,gBAAiB;EACf,SAAS,EAAE,GAAG;EACd,qBAAqB,EAAE,CAAC;EACxB,oBAAoB,EAAE,CAAC",
+"sources": ["team-detail.component.scss"],
+"names": [],
+"file": "team-detail.component.css"
+}

@@ -1,10 +1,8 @@
-<div class="content-container">
-  <h2>Teams</h2>
-  <ul class="teams">
-    <li *ngFor="let team of teams">
-      <a routerLink="./detail/{{team.id}}">
-        {{team.id}} {{team.name}}
-      </a>
-    </li>
-  </ul>
+<div class="columns">
+  <mat-card>
+    <router-outlet name="list"></router-outlet>
+  </mat-card>
+  <mat-card>
+    <router-outlet name="detail"></router-outlet>
+  </mat-card>
 </div>

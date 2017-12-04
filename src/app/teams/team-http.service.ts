@@ -11,7 +11,7 @@ const httpOptions = {
 };
 
 @Injectable()
-export class TeamService {
+export class TeamHttpService {
 
   private teamUrl = 'api/teams';  // URL to web api
 
