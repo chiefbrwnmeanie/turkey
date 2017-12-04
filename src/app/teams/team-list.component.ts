@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-
+import {MatTableDataSource, MatSort} from '@angular/material';
 import { Team } from './team';
 import { TeamsService } from './teams.service';
 
@@ -19,6 +18,13 @@ export class TeamListComponent implements OnInit {
     private route: ActivatedRoute,
     private service: TeamsService
   ) { }
+
+  // data table
+  displayedColumns = ['rank', 'name', 'league'];
+  // todo: change to observable to allow for data update if allowing edits on page
+  dataSource = new MatTableDataSource(this.service.getTeams());
+  @ViewChild(MatSort) sort: MatSort;
+
 
   ngOnInit() {
     this.teams = this.service.getTeams();

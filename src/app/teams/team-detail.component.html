@@ -1,6 +1,27 @@
-<div *ngIf="currentTeam">
-  <h3 class="app-team-list">{{currentTeam?.name}} Stats</h3>
-</div>
+<span  *ngIf="currentTeam">
+  <h3 class="app-team-list">{{currentTeam?.name}} Details</h3>
+
+  <mat-card class="app-team-details">
+    <mat-card-title>Player Roster</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Player Name: </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="app-team-details">
+    <mat-card-title>Team Stats</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Team Rank:  {{ currentTeam?.rank }} <mat-icon class="app-stats-icon">launch</mat-icon></mat-list-item>
+        <mat-list-item>Average Strikes Per Game: </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+</span>
+
 
 
 

@@ -3,6 +3,7 @@
 export interface Team {
   id: number;
   name: string;
- // league: string;
+  league: string;
+  rank: number;
  // players: Player;
 }

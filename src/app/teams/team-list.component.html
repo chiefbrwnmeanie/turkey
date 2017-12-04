@@ -1,13 +1,29 @@
-<h2 class="app-team-list">Teams</h2>
-<!--
-<mat-list>
-  <mat-list-item *ngFor="let team of teams" class="app-team-list mat-list-item"
-      [ngClass]="{selected: team.id === selectedTeam}"
-      (click)="showTeam(team.id)">{{ team.name }}</mat-list-item>
-</mat-list>
--->
-<mat-grid-list cols="3" rowHeight="3em">
-  <mat-grid-tile *ngFor="let team of teams" class="app-team-list mat-list-item"
-                 [ngClass]="{selected: team.id === selectedTeam}"
-                 (click)="showTeam(team.id)">{{ team.name }}</mat-grid-tile>
-</mat-grid-list>
+<h2 class="app-team-list-header">Teams</h2>
+
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <!-- Rank Column -->
+    <ng-container matColumnDef="rank">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Rank </mat-header-cell>
+      <mat-cell *matCellDef="let team"> {{team.rank}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Team Name </mat-header-cell>
+      <mat-cell *matCellDef="let team"
+                [ngClass]="{selected: team.id === selectedTeam}"
+                (click)="showTeam(team.id)" class="app-team-list">{{team.name}}</mat-cell>
+    </ng-container>
+
+    <!-- League Column -->
+    <!-- Rank Column -->
+    <ng-container matColumnDef="league">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>League</mat-header-cell>
+      <mat-cell *matCellDef="let team"> {{team.league}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
