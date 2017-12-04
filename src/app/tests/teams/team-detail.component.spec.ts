@@ -1,10 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { AppUiModule } from '../app-ui/app-ui.module';
-import { TeamsService } from '../teams/teams.service';
-import { TeamDetailComponent } from '../teams/team-detail.component';
-import { MessageService } from '../messages/message.service';
+import { AppUiModule } from '../../app-ui/app-ui.module';
+import { TeamsService } from '../../teams/teams.service';
+import { TeamDetailComponent } from '../../teams/team-detail.component';
 
 
 describe('TeamDetailComponent', () => {
@@ -15,7 +14,7 @@ describe('TeamDetailComponent', () => {
     TestBed.configureTestingModule({
       imports: [ AppUiModule, RouterTestingModule, HttpClientModule ],
       declarations: [ TeamDetailComponent ],
-      providers: [ TeamsService, MessageService ]
+      providers: [ TeamsService ]
 
     })
     .compileComponents();

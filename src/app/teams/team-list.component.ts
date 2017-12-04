@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import {MatTableDataSource, MatSort} from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatTableDataSource, MatSort} from '@angular/material';
 import { Team } from './team';
 import { TeamsService } from './teams.service';
 

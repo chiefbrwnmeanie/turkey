@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { AppUiModule } from '../app-ui/app-ui.module';
-import { MessageService } from '../messages/message.service';
-import { PlayerService } from '../players//player.service';
-import { PlayerDetailComponent } from '../players/player-detail.component';
+import { AppUiModule } from '../../app-ui/app-ui.module';
+import { MessageService } from '../../messages/message.service';
+import { PlayerService } from '../../players/player.service';
+import { PlayerDetailComponent } from '../../players/player-detail.component';
 
 describe('PlayerDetailComponent', () => {
   let component: PlayerDetailComponent;

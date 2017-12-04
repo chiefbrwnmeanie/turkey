@@ -1,26 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { TeamService } from '../teams/team-http.service';
-import { TeamsComponent } from '../teams/teams.component';
-import { AppUiModule } from '../app-ui/app-ui.module';
-import { MessageService } from '../messages/message.service';
+import { AppUiModule } from '../../app-ui/app-ui.module';
+import { PlayerService } from '../../players/player.service';
+import { PlayersComponent } from '../../players/players.component';
 
-describe('TeamsComponent', () => {
-  let component: TeamsComponent;
-  let fixture: ComponentFixture<TeamsComponent>;
+describe('PlayersComponent', () => {
+  let component: PlayersComponent;
+  let fixture: ComponentFixture<PlayersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ AppUiModule, HttpClientModule, RouterTestingModule ],
-      declarations: [ TeamsComponent ],
-      providers: [ TeamService, MessageService ]
+      providers: [ PlayerService ],
+      declarations: [ PlayersComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TeamsComponent);
+    fixture = TestBed.createComponent(PlayersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

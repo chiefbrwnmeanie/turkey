@@ -1,36 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { Player } from './player';
 import { PlayerService } from './player.service';
 
 @Component({
-  selector: 'app-player',
+  selector: 'app-player-detail',
   templateUrl: './player-detail.component.html',
-  styleUrls: ['./player-detail.component.css']
+  styleUrls: ['./player-detail.component.scss']
 })
 export class PlayerDetailComponent implements OnInit {
-  @Input() player: Player;
+  currentPlayer: Player;
 
   constructor(
     private route: ActivatedRoute,
-    private playerService: PlayerService,
-    private location: Location
-  ) {}
+    private service: PlayerService
+  ) { }
 
-  ngOnInit(): void {
-    this.getPlayer();
+  ngOnInit() {
+    this.route.params.subscribe((params: {id: string}) => {
+      this.currentPlayer = this.service.getPlayerById(params.id);
+    });
   }
-
-  getPlayer(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.playerService.getPlayer(id)
-      .subscribe(player => this.player = player);
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
 }

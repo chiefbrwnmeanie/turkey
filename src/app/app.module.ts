@@ -11,19 +11,23 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { MessageService } from './messages/message.service';
 import { MessagesComponent } from './messages/messages.component';
 import { AppUiModule } from './app-ui/app-ui.module';
-import { TeamHttpService } from './teams/team-http.service';
-import { TeamsComponent } from './teams/teams.component';
-import { TeamListComponent } from './teams/team-list.component';
-import { TeamDetailComponent } from './teams/team-detail.component';
-import { PlayerService } from './players/player.service';
-import { PlayersComponent } from './players/players.component';
-import { PlayerDetailComponent } from './players/player-detail.component';
-import { GamesComponent } from './games/games.component';
-import { GameComponent } from './games/game.component';
+
 import { ProfileModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { StatsModule } from './stats/stats.module';
+
 import { TeamsService } from './teams/teams.service';
+import { TeamsComponent } from './teams/teams.component';
+import { TeamListComponent } from './teams/team-list.component';
+import { TeamDetailComponent } from './teams/team-detail.component';
+
+import { PlayerService } from './players/player.service';
+import { PlayersComponent } from './players/players.component';
+import { PlayerListComponent } from './players/player-list.component';
+import { PlayerDetailComponent } from './players/player-detail.component';
+
+import { GamesComponent } from './games/games.component';
+import { GameComponent } from './games/game.component';
 
 @NgModule({
   imports: [
@@ -56,7 +60,8 @@ import { TeamsService } from './teams/teams.service';
     PlayerDetailComponent,
     GamesComponent,
     GameComponent,
-    TeamListComponent ],
+    TeamListComponent,
+    PlayerListComponent ],
   bootstrap: [ AppComponent ],
   providers: [
    // TeamService,

@@ -1,6 +1,16 @@
-<div class="content-container">
-  <div *ngIf="player">
-    <h2>{{ player.name }} Stats</h2>
-    <div><span>id: </span>{{player.id}} {{player.name}}</div>
-  </div>
-</div>
+<span  *ngIf="currentPlayer">
+  <h3 class="app-team-list">{{currentPlayer?.name}} Details</h3>
+
+  <mat-card class="app-team-details">
+    <mat-card-title>Team Stats</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Average Strikes Per Game: </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</span>
+
+
+
+
