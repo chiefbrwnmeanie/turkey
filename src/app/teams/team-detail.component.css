@@ -1,13 +1,3 @@
-h3.app-team-list {
-  font-size: 1.2em;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  margin-bottom: 10px; }
 
-.app-team-details > mat-card-title {
-  font-size: 1em; }
-
-.app-stats-icon {
-  padding-left: 20px; }
 
 /*# sourceMappingURL=team-detail.component.css.map */

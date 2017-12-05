@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { Team } from './team';
 import { TeamsService } from './teams.service';
 
 @Component({
   selector: 'app-team-detail',
   templateUrl: './team-detail.component.html',
-  styleUrls: ['./team-detail.component.scss']
+  styleUrls: ['./team-detail.component.scss'],
 })
 export class TeamDetailComponent implements OnInit {
   currentTeam: Team;
@@ -22,4 +21,5 @@ export class TeamDetailComponent implements OnInit {
       this.currentTeam = this.service.getTeamById(params.id);
     });
   }
+
 }

@@ -105,3 +105,38 @@ h1.app-name {
 .content-container {
   margin: 10px;
 }
+
+/* shared styles in components*/
+
+$app-list-link: #1565C0;
+
+h2.app-list-header {
+  font-size: 1.3em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  margin-bottom: 10px;
+}
+
+h3.app-list-header {
+  font-size: 1.2em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  margin-bottom: 10px;
+}
+
+.app-list-details > mat-card-title {
+  font-size: 1em;
+}
+
+.app-stats-icon {
+  padding-left: 20px;
+}
+
+.app-list-link {
+  cursor:pointer;
+  height: auto;
+  color: $app-list-link;
+}
+
+
+

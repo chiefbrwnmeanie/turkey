@@ -1,16 +1,14 @@
 <span  *ngIf="currentTeam">
-  <h3 class="app-team-list">{{currentTeam?.name}} Details</h3>
+  <h3 class="app-list">{{currentTeam?.name}} Details</h3>
 
-  <mat-card class="app-team-details">
+  <mat-card class="app-list-details">
     <mat-card-title>Player Roster</mat-card-title>
     <mat-card-content>
-      <mat-list>
-        <mat-list-item>Player Name: </mat-list-item>
-      </mat-list>
+    <app-player-list [teamId]="currentTeam?.id"></app-player-list>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="app-team-details">
+  <mat-card class="app-list-details">
     <mat-card-title>Team Stats</mat-card-title>
     <mat-card-content>
       <mat-list>

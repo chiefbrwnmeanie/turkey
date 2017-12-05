@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component, OnInit, ViewChild, Input} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Player} from '../players/player';
 import { PlayerService } from '../players/player.service';
+import 'rxjs/operators/map';
 
 @Component({
   selector: 'app-player-list',
@@ -12,32 +13,43 @@ import { PlayerService } from '../players/player.service';
 export class PlayerListComponent implements OnInit {
   players: Player[] = [];
   selectedPlayer: number;
+  private _teamId = 0;
+
+  @Input()
+  set teamId(teamId: number) { this._teamId = (teamId); }
+  get teamId(): number { return this._teamId; }
+
+  // data table
+  displayedColumns = ['name'];
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private service: PlayerService
+    private service: PlayerService,
   ) { }
 
-  // data table
-  displayedColumns = ['name'];
-  // todo: change to observable to allow for data update if allowing edits on page
-  dataSource = new MatTableDataSource(this.service.getPlayers());
-  @ViewChild(MatSort) sort: MatSort;
-
-
   ngOnInit() {
-    this.players = this.service.getPlayers();
+   // this.players = this.service.getPlayers(this._teamId);
+    this.service.getPlayers()
+      .subscribe(players => {
+        this.players = players;
+        this.dataSource = new MatTableDataSource(this.players);
+      });
+
     this.route.parent.children
       .find(r => r.outlet === 'detail')
       .params
       .subscribe((params: any) => {
-        if (params.id) { this.selectedPlayer = +params.id; }
+        if (params.id && !isNaN(params.id) ) { this.selectedPlayer = +params.id; }
       });
   }
 
   showPlayer(id: number) {
     this.selectedPlayer = id;
+    console.log(this.selectedPlayer);
     this.router.navigate(['/players', { outlets: {'detail': [id]}}]);
   }
+
 }

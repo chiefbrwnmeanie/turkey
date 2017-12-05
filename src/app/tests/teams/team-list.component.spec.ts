@@ -1,7 +1,7 @@
 import { async, ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppUiModule } from '../../app-ui/app-ui.module';
-import { ActivatedRoute, ActivatedRouteStub, click, newEvent, Router, RouterStub } from '../../testing';
+import { ActivatedRoute, ActivatedRouteStub, click, newEvent, Router, RouterStub } from '../testing';
 
 import { Team} from '../../teams/team';
 import { TeamsService } from '../../teams/teams.service';

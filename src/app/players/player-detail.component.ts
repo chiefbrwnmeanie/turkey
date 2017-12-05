@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Player } from './player';
 import { PlayerService } from './player.service';
+import {MatTableDataSource} from '@angular/material';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-player-detail',
@@ -10,6 +14,7 @@ import { PlayerService } from './player.service';
   styleUrls: ['./player-detail.component.scss']
 })
 export class PlayerDetailComponent implements OnInit {
+  @Input()
   currentPlayer: Player;
 
   constructor(
@@ -18,8 +23,9 @@ export class PlayerDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: {id: string}) => {
-      this.currentPlayer = this.service.getPlayerById(params.id);
-    });
+    this.route.params
+      .map(params => params['id'])
+      .switchMap(id => this.service.getPlayerById(id))
+      .subscribe(player => this.currentPlayer = player);
   }
 }

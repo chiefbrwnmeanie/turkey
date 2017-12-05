@@ -1,23 +1,65 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
+
 import { Player } from './player';
+import { MessageService } from '../messages/message.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class PlayerService {
-  private players: Player[] = [
-    {id: 1, name: 'John',  team: 'We\'re on Strike'},
-    {id: 2, name: 'Sue',  team: 'Happy Rollers'},
-    {id: 3, name: 'Pam',  team: 'Who Gives a Split'},
-    {id: 4, name: 'Paul', team: 'Rollin Stones'},
-    {id: 5, name: 'James', team: 'Here for Beer'},
-  ];
 
-  constructor() { }
+  private playerUrl = 'api/players';  // URL to web api
 
-  getPlayers() {
-    return this.players;
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
+
+  getPlayers (): Observable<Player[]> {
+    return this.http.get<Player[]>(this.playerUrl)
+      .pipe(
+        tap(players => this.log(`fetched players`)),
+        catchError(this.handleError('getPlayers', []))
+      );
   }
 
-  getPlayerById(id) {
-    return this.players.find(player => player.id === Number(id));
+  /** GET players by id. Error with 404 if id not found */
+  getPlayerById(id: number): Observable<Player> {
+    const url = `${this.playerUrl}/${id}`;
+    console.log(url);
+    return this.http.get<Player>(url).pipe(
+      tap(_ => this.log(`fetched player id=${id}`)),
+      catchError(this.handleError<Player>(`getPlayer id=${id}`))
+    );
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  /** Log a Player Service message with the MessageService */
+  private log(message: string) {
+    this.messageService.add('Player Service: ' + message);
   }
 }

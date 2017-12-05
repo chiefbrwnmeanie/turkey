@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 import { Team } from '../teams/team';
 
 @Injectable()
@@ -20,4 +22,5 @@ export class TeamsService {
   getTeamById(id) {
     return this.teams.find(team => team.id === Number(id));
   }
+
 }

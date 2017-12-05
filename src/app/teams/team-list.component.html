@@ -1,4 +1,4 @@
-<h2 class="app-team-list-header">Teams</h2>
+<h2 class="app-list-header">Teams</h2>
 
 <div class="example-container mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource" matSort>
@@ -13,11 +13,10 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Team Name </mat-header-cell>
       <mat-cell *matCellDef="let team"
                 [ngClass]="{selected: team.id === selectedTeam}"
-                (click)="showTeam(team.id)" class="app-team-list">{{team.name}}</mat-cell>
+                (click)="showTeam(team.id)" class="app-list-link">{{team.name}}</mat-cell>
     </ng-container>
 
     <!-- League Column -->
-    <!-- Rank Column -->
     <ng-container matColumnDef="league">
       <mat-header-cell *matHeaderCellDef mat-sort-header>League</mat-header-cell>
       <mat-cell *matCellDef="let team"> {{team.league}} </mat-cell>
