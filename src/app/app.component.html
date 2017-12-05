@@ -13,7 +13,6 @@
     <mat-icon class="app-toolbar toolbar-icon" matTooltip="Profile">person</mat-icon>
     </a> -->
   </mat-toolbar>
-
   <!-- nav and content containers -->
   <mat-sidenav-container class="app-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -21,8 +20,8 @@
     <mat-sidenav class="app-sidenav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list class="app-sidenav">
-        <a mat-list-item [routerLink] = "['/teams', { outlets: {'list': ['team-list'], 'detail': ['none']}} ]">Teams</a>
-        <a mat-list-item [routerLink] = "['/players', { outlets: {'list': ['player-list'], 'detail': ['none']}} ]">Players</a>
+        <a mat-list-item [routerLink] = "['/teams', { outlets: {'list': ['team-list'], 'detail': [0]}} ]">Teams</a>
+        <a mat-list-item [routerLink] = "['/players', { outlets: {'list': ['player-list'], 'detail': [0]}} ]">Players</a>
         <!--<a mat-list-item [routerLink] = "['/games', { outlets: {'list': ['game-list'], 'detail': ['none']}} ]">Games</a> -->
       </mat-nav-list>
     </mat-sidenav>

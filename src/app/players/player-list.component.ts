@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild, Input} from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, Input} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Player} from '../players/player';
 import { PlayerService } from '../players/player.service';
+import { Subscription} from 'rxjs/Subscription';
 import 'rxjs/operators/map';
+import 'rxjs/operators/filter';
 
 @Component({
   selector: 'app-player-list',
@@ -11,9 +13,11 @@ import 'rxjs/operators/map';
   styleUrls: ['./player-list.component.scss']
 })
 export class PlayerListComponent implements OnInit {
+
   players: Player[] = [];
   selectedPlayer: number;
-  private _teamId = 0;
+  private _teamId;
+  private subscription: Subscription;
 
   @Input()
   set teamId(teamId: number) { this._teamId = (teamId); }
@@ -31,10 +35,21 @@ export class PlayerListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   // this.players = this.service.getPlayers(this._teamId);
+    this.subscription = this.service.onLoaded.subscribe((message) => {
+      this.teamId = message;
+      this.showPlayers();
+    });
+    this.showPlayers();
+  }
+
+  showPlayers() {
+    console.log(this.teamId);
     this.service.getPlayers()
       .subscribe(players => {
         this.players = players;
+        if (this._teamId) {
+          this.players = players.filter(players => players.teamId === this._teamId );
+        }
         this.dataSource = new MatTableDataSource(this.players);
       });
 

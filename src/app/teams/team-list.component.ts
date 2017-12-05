@@ -1,8 +1,10 @@
-import {Component, OnInit, ViewChild, Input} from '@angular/core';
+import {Component, OnInit, ViewChild, Input, EventEmitter, Output} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatSort} from '@angular/material';
 import { Team } from './team';
 import { TeamService} from './team.service';
+import { PlayerService} from '../players/player.service';
+
 import 'rxjs/operators/map';
 
 @Component({
@@ -24,6 +26,7 @@ export class TeamListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private service: TeamService,
+    private playerService: PlayerService,
   ) { }
 
   ngOnInit() {
@@ -42,6 +45,9 @@ export class TeamListComponent implements OnInit {
   }
 
   showTeam(id: number) {
+
+    this.playerService.onLoaded.emit(id);
+
     this.selectedTeam = id;
     this.router.navigate(['/teams', { outlets: {'detail': [id]}}]);
   }

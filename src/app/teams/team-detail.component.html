@@ -1,10 +1,5 @@
 <span  *ngIf="currentTeam">
   <h3 class="app-list">{{currentTeam?.name}} Details</h3>
-  <mat-grid-list cols="4">
-    <mat-grid-tile [colspan]="3">
-        <app-player-list [teamId]="currentTeam?.id"></app-player-list>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1">
       <mat-card class="app-list-details">
       <mat-card-title>Team Stats</mat-card-title>
       <mat-card-content>
@@ -14,8 +9,8 @@
         </mat-list>
       </mat-card-content>
       </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+
+  <app-player-list [teamId]="currentTeam?.id"></app-player-list>
 </span>
 
 
