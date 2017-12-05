@@ -1,6 +1,6 @@
 export interface Game {
-  game: number;
-  score: number;
-  strikes: number;
-  spares: number;
+  id: number;
+  name: string;
+  teamIds: [number, number];
+  teamNames: [string, string];
 }

@@ -1,21 +1,25 @@
 <span  *ngIf="currentTeam">
   <h3 class="app-list">{{currentTeam?.name}} Details</h3>
-
-  <mat-card class="app-list-details">
-    <mat-card-content>
-    <app-player-list [teamId]="currentTeam?.id"></app-player-list>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card class="app-list-details">
-    <mat-card-title>Team Stats</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item>Team Rank:  {{ currentTeam?.rank }} <mat-icon class="app-stats-icon">launch</mat-icon></mat-list-item>
-        <mat-list-item>Average Strikes Per Game: </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
+  <mat-grid-list cols="4" rowHeight="1:2" gutterSize="20px">
+    <mat-grid-tile>
+      <mat-card class="app-list-details">
+        <mat-card-content>
+        <app-player-list [teamId]="currentTeam?.id"></app-player-list>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="app-list-details">
+      <mat-card-title>Team Stats</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>Team Rank:  {{ currentTeam?.rank }} <mat-icon class="app-stats-icon">launch</mat-icon></mat-list-item>
+          <mat-list-item>Average Strikes Per Game: </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </span>
 
 
