@@ -24,6 +24,7 @@ export class PlayerService {
 
   getPlayers (): Observable<Player[]> {
     return this.http.get<Player[]>(this.playerUrl)
+      // .map(res => res.filter(<Player>(x) => x.teamId > 0))
       .pipe(
         tap(players => this.log(`fetched players`)),
         catchError(this.handleError('getPlayers', []))
@@ -33,7 +34,7 @@ export class PlayerService {
   /** GET players by id. Error with 404 if id not found */
   getPlayerById(id: number): Observable<Player> {
     const url = `${this.playerUrl}/${id}`;
-    console.log(url);
+    console.log("get player by id: " + url + ' ' + id );
     return this.http.get<Player>(url).pipe(
       tap(_ => this.log(`fetched player id=${id}`)),
       catchError(this.handleError<Player>(`getPlayer id=${id}`))

@@ -1,18 +1,19 @@
 <span  *ngIf="currentTeam">
-  <h3 class="app-list">{{currentTeam?.name}} Details</h3>
-      <mat-card class="app-list-details">
+  <h3 class="app-list-header team-details">{{currentTeam?.name}} Details</h3>
+      <mat-card class="team-roster">
+      <app-player-list [teamId]="currentTeam?.id"></app-player-list>
+      </mat-card>
+      <mat-card class="app-list-details team-stats-list">
       <mat-card-title>Team Stats</mat-card-title>
       <mat-card-content>
-        <mat-list>
+        <mat-list class="team-stats">
           <mat-list-item>Team Rank:  {{ currentTeam?.rank }} <mat-icon class="app-stats-icon">launch</mat-icon></mat-list-item>
-          <mat-list-item>Average Strikes Per Game: </mat-list-item>
+          <mat-list-item>Team Points Average:  {{ currentTeam?.teamAvg }}</mat-list-item>
+          <mat-list-item>Handicap:  {{ currentTeam?.hdcp }}</mat-list-item>
+          <mat-list-item>Points Won: {{ currentTeam?.pointsWon }} </mat-list-item>
+          <mat-list-item>Points Lost:  {{ currentTeam?.pointsLost }}</mat-list-item>
+          <mat-list-item>Win Percentage: {{ currentTeam?.winPerc/100 | percent:'1.2-5' }} </mat-list-item>
         </mat-list>
       </mat-card-content>
       </mat-card>
-
-  <app-player-list [teamId]="currentTeam?.id"></app-player-list>
 </span>
-
-
-
-

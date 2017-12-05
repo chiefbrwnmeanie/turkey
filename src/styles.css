@@ -1365,13 +1365,11 @@ h1.app-name {
 .app-is-mobile .app-sidenav-container {
   flex: 1 0 auto; }
 
-/* components */
-.dashboard-chart-card {
-  width: 500px;
-  height: 500px;
-  margin: 15px;
-  float: left; }
+/* table override s*/
+mat-header-cell.mat-sort-header-sorted {
+  color: #333333; }
 
+/* components */
 /* router outlet content area */
 .content-container {
   margin: 10px; }

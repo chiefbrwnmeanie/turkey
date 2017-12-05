@@ -24,6 +24,7 @@ import {
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
+  MatPaginator,
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatRadioModule,
@@ -33,7 +34,9 @@ import {
   MatSliderModule,
   MatSlideToggleModule,
   MatSnackBarModule,
+  MatSort,
   MatStepperModule,
+  MatTableDataSource,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
@@ -125,6 +128,10 @@ import {
     MatTooltipModule,
     MatNativeDateModule,
   ],
-  declarations: []
+  declarations: [],
+  providers: [
+    MatPaginator,
+    MatSort
+     ]
 })
 export class AppMaterialModule { }

@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, Input, EventEmitter, Output} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTableDataSource, MatSort} from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Team } from './team';
 import { TeamService} from './team.service';
 import { PlayerService} from '../players/player.service';
@@ -17,10 +17,10 @@ export class TeamListComponent implements OnInit {
   selectedTeam: number;
 
   // data table
-  displayedColumns = ['rank', 'name', 'league', 'teamAvg'];
-  // todo: change to observable to allow for data update if allowing edits on page
-  dataSource: MatTableDataSource<any>;
+  dataSource: MatTableDataSource<Team>;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  displayedColumns = ['rank', 'name', 'league', 'teamAvg'];
 
   constructor(
     private router: Router,
@@ -34,6 +34,7 @@ export class TeamListComponent implements OnInit {
       .subscribe(players => {
         this.teams = players;
         this.dataSource = new MatTableDataSource(this.teams);
+        this.dataSource.paginator = this.paginator;
       });
 
     this.route.parent.children

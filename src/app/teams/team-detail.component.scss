@@ -1,0 +1,31 @@
+$team-details-header-bg: #cfd8dc;
+
+.mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
+  height: auto;
+  padding: 3px 0;
+}
+
+.mat-card-title {
+  margin: 15px;
+  font-size: 1.2em;
+}
+
+.team-stats-list {
+  width: 30%;
+  display: inline-block;
+  padding: 0 0 10px 0;
+}
+
+.team-roster {
+  width: 60%;
+  display: inline-block;
+  margin: 0 15px 0 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+h3.team-details {
+  margin-top: 15px;
+  padding: 10px;
+  background: $team-details-header-bg;
+}

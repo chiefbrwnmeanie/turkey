@@ -21,9 +21,11 @@ export class PlayerDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("params" + this.route.params['id']);
     this.route.params
       .map(params => params['id'])
       .switchMap(id => this.service.getPlayerById(id))
       .subscribe(player => this.currentPlayer = player);
   }
+
 }

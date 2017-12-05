@@ -27,6 +27,7 @@ $turkey-app-theme: mat-light-theme(
 $toolbar-link-color: #333333;
 $nav-background: #333333;
 $nav-link-color: #dddddd;
+$table-sort-header-color: #333333;
 
 body {
   margin: 0;
@@ -93,13 +94,12 @@ h1.app-name {
   flex: 1 0 auto;
 }
 
-/* components */
-.dashboard-chart-card {
-  width: 500px;
-  height: 500px;
-  margin: 15px;
-  float: left;
+/* table override s*/
+mat-header-cell.mat-sort-header-sorted {
+  color: $table-sort-header-color;
 }
+
+/* components */
 
 /* router outlet content area */
 .content-container {

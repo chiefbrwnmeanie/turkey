@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, ViewChild, Input} from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, Input} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Player} from '../players/player';
 import { PlayerService } from '../players/player.service';
 import { Subscription} from 'rxjs/Subscription';
@@ -12,7 +12,7 @@ import 'rxjs/operators/filter';
   templateUrl: './player-list.component.html',
   styleUrls: ['./player-list.component.scss']
 })
-export class PlayerListComponent implements OnInit {
+export class PlayerListComponent implements OnInit, AfterViewInit {
 
   players: Player[] = [];
   selectedPlayer: number;
@@ -25,7 +25,8 @@ export class PlayerListComponent implements OnInit {
 
   // data table
   displayedColumns = ['name', 'teamName', 'pins'];
-  dataSource: MatTableDataSource<any>;
+  dataSource: MatTableDataSource<Player>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -42,15 +43,21 @@ export class PlayerListComponent implements OnInit {
     this.showPlayers();
   }
 
+  ngAfterViewInit() {
+    //console.log("ok done");
+  }
+
   showPlayers() {
-    console.log(this.teamId);
     this.service.getPlayers()
       .subscribe(players => {
         this.players = players;
-        if (this._teamId) {
+        if (this.teamId) {
           this.players = players.filter(players => players.teamId === this._teamId );
         }
-        this.dataSource = new MatTableDataSource(this.players);
+        // todo: clean up to use lifecycle hook afterviewinit?
+        this.dataSource = new MatTableDataSource<Player>(this.players);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       });
 
     this.route.parent.children
@@ -63,7 +70,6 @@ export class PlayerListComponent implements OnInit {
 
   showPlayer(id: number) {
     this.selectedPlayer = id;
-    console.log(this.selectedPlayer);
     this.router.navigate(['/players', { outlets: {'detail': [id]}}]);
   }
 
