@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { Team } from './team';
 import { MessageService } from '../messages/message.service';
@@ -12,7 +12,7 @@ const httpOptions = {
 };
 
 @Injectable()
-export class TeamHttpService {
+export class TeamService {
 
   private teamUrl = 'api/teams';  // URL to web api
 
@@ -21,7 +21,7 @@ export class TeamHttpService {
     private messageService: MessageService) { }
 
 
-  getTeams (): Observable<Team[]> {
+  getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>(this.teamUrl)
       .pipe(
         tap(teams => this.log(`fetched teams`)),
@@ -30,7 +30,7 @@ export class TeamHttpService {
   }
 
   /** GET team by id. Error with 404 if id not found */
-  getTeam(id: number): Observable<Team> {
+  getTeamById(id: number): Observable<Team> {
     const url = `${this.teamUrl}/${id}`;
     return this.http.get<Team>(url).pipe(
       tap(_ => this.log(`fetched team id=${id}`)),

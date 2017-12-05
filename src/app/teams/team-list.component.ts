@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatSort} from '@angular/material';
 import { Team } from './team';
-import { TeamsService } from './teams.service';
+import { TeamService} from './team.service';
+import 'rxjs/operators/map';
 
 @Component({
   selector: 'app-teams',
@@ -13,25 +14,30 @@ export class TeamListComponent implements OnInit {
   teams: Team[] = [];
   selectedTeam: number;
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private service: TeamsService,
-  ) { }
-
   // data table
   displayedColumns = ['rank', 'name', 'league'];
   // todo: change to observable to allow for data update if allowing edits on page
-  dataSource = new MatTableDataSource(this.service.getTeams());
+  dataSource: MatTableDataSource<any>;
   @ViewChild(MatSort) sort: MatSort;
 
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private service: TeamService,
+  ) { }
+
   ngOnInit() {
-    this.teams = this.service.getTeams();
+    this.service.getTeams()
+      .subscribe(players => {
+        this.teams = players;
+        this.dataSource = new MatTableDataSource(this.teams);
+      });
+
     this.route.parent.children
       .find(r => r.outlet === 'detail')
       .params
       .subscribe((params: any) => {
-        if (params.id) { this.selectedTeam = +params.id; }
+        if (params.id && !isNaN(params.id) ) { this.selectedTeam = +params.id; }
       });
   }
 

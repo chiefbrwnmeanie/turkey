@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Team } from './team';
-import { TeamsService } from './teams.service';
+import { TeamService} from './team.service';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-team-detail',
@@ -13,13 +15,13 @@ export class TeamDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: TeamsService
+    private service: TeamService
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: {id: string}) => {
-      this.currentTeam = this.service.getTeamById(params.id);
-    });
+    this.route.params
+      .map(params => params['id'])
+      .switchMap(id => this.service.getTeamById(id))
+      .subscribe(team => this.currentTeam = team);
   }
-
 }

@@ -16,7 +16,7 @@ import { ProfileModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { StatsModule } from './stats/stats.module';
 
-import { TeamsService } from './teams/teams.service';
+import { TeamService } from './teams/team.service';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamListComponent } from './teams/team-list.component';
 import { TeamDetailComponent } from './teams/team-detail.component';
@@ -64,9 +64,9 @@ import { GameComponent } from './games/game.component';
     PlayerListComponent ],
   bootstrap: [ AppComponent ],
   providers: [
-   // TeamService,
-    MessageService,
+    TeamService,
     PlayerService,
-    TeamsService ]
+    MessageService
+  ]
 })
 export class AppModule {}

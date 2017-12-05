@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamsService } from './teams.service';
+import { TeamService } from './team.service';
 
 @Component({
   selector: 'app-team-list',
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.css'],
-  providers: [ TeamsService ]
+  providers: [ TeamService ]
 })
 export class TeamsComponent implements OnInit {
 

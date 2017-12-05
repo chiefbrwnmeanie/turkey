@@ -1,12 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { Player } from './player';
-import { PlayerService } from './player.service';
-import {MatTableDataSource} from '@angular/material';
-
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
+import { Player } from './player';
+import { PlayerService } from './player.service';
+
 
 @Component({
   selector: 'app-player-detail',
