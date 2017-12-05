@@ -15,7 +15,7 @@ export class TeamListComponent implements OnInit {
   selectedTeam: number;
 
   // data table
-  displayedColumns = ['rank', 'name', 'league'];
+  displayedColumns = ['rank', 'name', 'league', 'teamAvg'];
   // todo: change to observable to allow for data update if allowing edits on page
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatSort) sort: MatSort;

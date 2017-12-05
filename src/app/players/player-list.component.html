@@ -1,14 +1,25 @@
 <h2 class="app-list-header">Players</h2>
 
-<div class="example-container mat-elevation-z8">
+<div class="mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource" matSort>
-
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
       <mat-cell *matCellDef="let player"
                 [ngClass]="{selected: player.id === selectedPlayer}"
                 (click)="showPlayer(player.id)" class="app-list-link">{{player.name}}</mat-cell>
+    </ng-container>
+
+    <!-- Team Avg Column -->
+    <ng-container matColumnDef="teamName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Team Name</mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.teamName}}</mat-cell>
+    </ng-container>
+
+    <!-- Team Avg Column -->
+    <ng-container matColumnDef="pins">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Team Name</mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.pins}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

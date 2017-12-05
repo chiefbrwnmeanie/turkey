@@ -20,7 +20,7 @@ export class PlayerListComponent implements OnInit {
   get teamId(): number { return this._teamId; }
 
   // data table
-  displayedColumns = ['name'];
+  displayedColumns = ['name', 'teamName', 'pins'];
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatSort) sort: MatSort;
 
