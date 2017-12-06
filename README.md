@@ -1,10 +1,27 @@
-# Turkey
+# Turkey: A Bowling Stats App
+
+Three Strikes in bowling is called a "Turkey". 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
-## Development server
+##Installation: Pre-requisites 
+Both the CLI and generated project have dependencies that require Node 6.9.0 or higher, together with NPM 3 or higher.
+See: https://docs.npmjs.com/getting-started/installing-node
+```bash
+npm install -g @angular/cli
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
+## Running tis app on a Development server
+
+After downloading this code repo:
+```bash
+cd PROJECT-NAME
+ng serve -o
+```
+
+If not using `-o`, navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
