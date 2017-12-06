@@ -1,6 +1,6 @@
 # Turkey: A Bowling Stats App
 
-Three Strikes in bowling is called a "Turkey". 
+Three Strikes in bowling is called a "Turkey". Gobble Gobble.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
