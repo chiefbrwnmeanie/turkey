@@ -1,16 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { TeamsService } from '../../teams/teams.service';
+import { TeamService } from '../../teams/team.service';
+import { MessageService} from '../../messages/message.service';
 
 describe('TeamService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ HttpClientModule ],
-      providers: [ TeamsService ]
+      providers: [ TeamService, MessageService]
     });
   });
 
-  it('should be created', inject([TeamsService], (service: TeamsService) => {
+  it('should be created', inject([TeamService], (service: TeamService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -2,11 +2,14 @@ import { async, ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angu
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppUiModule } from '../../app-ui/app-ui.module';
 import { ActivatedRoute, ActivatedRouteStub, click, newEvent, Router, RouterStub } from '../testing';
-
 import { Team} from '../../teams/team';
-import { TeamsService } from '../../teams/teams.service';
+import { TeamService } from '../../teams/team.service';
 import { TeamListComponent } from '../../teams/team-list.component';
 import {MatTableDataSource} from '@angular/material';
+import { PlayerService } from '../../players/player.service'
+import { MessageService} from '../../messages/message.service';
+
+
 
 describe('TeamListComponent', () => {
   let component: TeamListComponent;
@@ -20,10 +23,10 @@ describe('TeamListComponent', () => {
         AppUiModule
          ],
       declarations: [ TeamListComponent ],
-      providers: [ TeamsService,
+      providers: [ TeamService, PlayerService, MessageService,
         { provide: ActivatedRoute, useValue: activatedRoute },
         { provide: Router,         useClass: RouterStub},
-        { provide: TeamsService,   useValue: {} }
+        { provide: TeamService,   useValue: {} }
       ]
     });
   }));

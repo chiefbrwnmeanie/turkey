@@ -3,6 +3,7 @@ import { Chart} from './chart';
 
 declare var require: any;
 // todo: write service to provide data to chart components
+// todo: move location of this component to appropriate dir
 const data: any = require('../../../assets/charts-data.json');
 
 @Component({
