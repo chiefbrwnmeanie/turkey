@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,0FAA2F;EACzF,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,KAAK;;AAGhB,YAAa;EACX,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;;AAGb,aAAc;EACZ,KAAK,EAAE,GAAG;;AAEZ,eAAgB;EACd,MAAM,EAAE,MAAM",
+"sources": ["player-detail.component.scss"],
 "names": [],
 "file": "player-detail.component.css"
 }

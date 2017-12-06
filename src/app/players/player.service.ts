@@ -5,7 +5,6 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, switchMap, tap, filter } from 'rxjs/operators';
 import { Player } from './player';
 import { MessageService } from '../messages/message.service';
-import { TeamService} from '../teams/team.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +14,6 @@ const httpOptions = {
 export class PlayerService {
 
   private playerUrl = 'api/players';  // URL to web api
-
   onLoaded: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(

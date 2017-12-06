@@ -20,6 +20,7 @@
     <mat-sidenav class="app-sidenav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list class="app-sidenav">
+        <a mat-list-item [routerLink] = "['/dashboard']">Dashboard</a>
         <a mat-list-item [routerLink] = "['/teams', { outlets: {'list': ['team-list'], 'detail': [0]}} ]">Teams</a>
         <a mat-list-item [routerLink] = "['/players', { outlets: {'list': ['player-list'], 'detail': [0]}} ]">Players</a>
         <!--<a mat-list-item [routerLink] = "['/games', { outlets: {'list': ['game-list'], 'detail': ['none']}} ]">Games</a> -->
@@ -32,6 +33,5 @@
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
-
   </mat-sidenav-container>
 </div>

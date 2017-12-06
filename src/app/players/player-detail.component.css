@@ -1,3 +1,16 @@
+.mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
+  height: auto;
+  padding: 3px 0; }
 
+.player-icon {
+  font-size: 10em;
+  height: auto;
+  width: auto; }
+
+.player-stats {
+  width: 75%; }
+
+.player-details {
+  margin: 15px 0; }
 
 /*# sourceMappingURL=player-detail.component.css.map */

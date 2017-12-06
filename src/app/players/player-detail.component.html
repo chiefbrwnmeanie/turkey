@@ -1,14 +1,28 @@
 <span  *ngIf="currentPlayer">
-  <h3 class="app-list-header">{{currentPlayer?.name}} Details</h3>
+  <mat-grid-list cols="3" class="mat-elevation-z1 player-details">
+    <mat-grid-tile [colspan]="1">
+          <mat-grid-tile-header>{{currentPlayer?.name}}</mat-grid-tile-header>
+          <mat-icon class="player-icon">account_circle</mat-icon></mat-grid-tile>
+      <mat-grid-tile [colspan]="2">
+        <mat-list class="player-stats">
+          <mat-list-item>Average Score:  {{ currentPlayer?.avgScore }}</mat-list-item>
+          <mat-list-item>Total Pins:  {{ currentPlayer?.pins }}</mat-list-item>
+          <mat-list-item>Handicap:  {{ currentPlayer?.hdcp }}</mat-list-item>
+          <mat-list-item>Points Won: {{ currentPlayer?.pointsWon }} </mat-list-item>
+          <mat-list-item>Points Lost:  {{ currentPlayer?.pointsLost }}</mat-list-item>
+          <mat-list-item>Win Percentage: {{ currentPlayer?.winPerc/100 | percent:'1.2-5' }} </mat-list-item>
+        </mat-list>
+      </mat-grid-tile>
+  </mat-grid-list>
 
+  <!--
   <mat-card class="app-list-details">
     <mat-card-title>Player Stats</mat-card-title>
     <mat-card-content>
-      <mat-list>
-        <mat-list-item>Average Strikes Per Game: </mat-list-item>
-      </mat-list>
+
     </mat-card-content>
   </mat-card>
+  -->
 </span>
 
 
