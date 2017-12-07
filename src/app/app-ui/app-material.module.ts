@@ -24,7 +24,7 @@ import {
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
-  MatPaginator,
+  MatPaginatorModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatRadioModule,
@@ -34,7 +34,7 @@ import {
   MatSliderModule,
   MatSlideToggleModule,
   MatSnackBarModule,
-  MatSort,
+  MatSortModule,
   MatStepperModule,
   MatTableDataSource,
   MatTableModule,
@@ -112,6 +112,7 @@ import {
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
@@ -121,6 +122,7 @@ import {
     MatSlideToggleModule,
     MatSliderModule,
     MatSnackBarModule,
+    MatSortModule,
     MatStepperModule,
     MatTableModule,
     MatTabsModule,
@@ -130,8 +132,6 @@ import {
   ],
   declarations: [],
   providers: [
-    MatPaginator,
-    MatSort
      ]
 })
 export class AppMaterialModule { }

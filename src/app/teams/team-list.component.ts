@@ -35,6 +35,7 @@ export class TeamListComponent implements OnInit {
         this.teams = players;
         this.dataSource = new MatTableDataSource(this.teams);
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       });
 
     this.route.parent.children
